@@ -125,21 +125,25 @@
         var hold = 1;
 
         canvas.click(function(e) {
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            if (seed.hover(x, y)) {
-                hold = 0; 
-                canvas.unbind("click");
-                canvas.unbind("mousemove");
-                canvas.removeClass('hand');
-            }
-        }).mousemove(function(e){
-            var offset = canvas.offset(), x, y;
-            x = e.pageX - offset.left;
-            y = e.pageY - offset.top;
-            canvas.toggleClass('hand', seed.hover(x, y));
-        });
+    var offset = canvas.offset(), x, y;
+    x = e.pageX - offset.left;
+    y = e.pageY - offset.top;
+    if (seed.hover(x, y)) {
+
+        document.getElementById("bgMusic").play();
+
+        hold = 0; 
+        canvas.unbind("click");
+        canvas.unbind("mousemove");
+        canvas.removeClass('hand');
+    }
+}).mousemove(function(e){
+    var offset = canvas.offset(), x, y;
+    x = e.pageX - offset.left;
+    y = e.pageY - offset.top;
+    canvas.toggleClass('hand', seed.hover(x, y));
+});
+
 
         var seedAnimate = eval(Jscex.compile("async", function () {
             seed.draw();
@@ -249,6 +253,7 @@
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
 
 </html>
+
 
 
 
